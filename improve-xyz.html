@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DreamWeave Tales - Personalized Storybook Creator</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap');
+        body { font-family: 'Fredoka', sans-serif; }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 15px rgba(245, 158, 11, 0.4); }
+            50% { box-shadow: 0 0 30px rgba(245, 158, 11, 0.8); }
+        }
+        .glow-effect {
+            animation: pulse-glow 2.5s infinite;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-b from-amber-50/80 via-orange-50/30 to-amber-100/50 text-slate-800 min-h-screen flex flex-col justify-between selection:bg-amber-300">
+
+    <!-- NAVIGATION BAR -->
+    <nav class="bg-white/90 backdrop-blur-md border-b border-amber-200/60 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Logo & Cartoon Buddy Welcome -->
+            <div class="flex items-center space-x-3">
+                <div class="relative bg-gradient-to-tr from-amber-400 to-orange-400 p-2.5 rounded-2xl shadow-md flex items-center justify-center animate-float">
+                    <span class="text-2xl">🦉</span>
+                </div>
+                <div>
+                    <span class="text-2xl font-bold tracking-wide bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">DreamWeave</span>
+                    <p class="text-xs text-amber-800/70 font-medium hidden sm:block">"Hoot hoot! Let's make magic!" ✨</p>
+                </div>
+            </div>
+
+            <!-- Nav Links -->
+            <div class="hidden md:flex items-center space-x-8 font-medium">
+                <a href="#home" class="text-amber-600 hover:text-amber-700 transition">Home</a>
+                <a href="#creator" class="text-slate-600 hover:text-amber-600 transition">Create Story</a>
+                <a href="#about" class="text-slate-600 hover:text-amber-600 transition">About</a>
+                <a href="#contact" class="text-slate-600 hover:text-amber-600 transition">Contact</a>
+            </div>
+
+            <!-- CTA Button -->
+            <div>
+                <a href="#creator" class="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-semibold px-5 py-2.5 rounded-xl shadow-md transition transform hover:scale-105 text-sm">
+                    Make a Book 🪄
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-grow">
+        
+        <!-- HERO SECTION -->
+        <section id="home" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
+            <span class="bg-amber-100 text-amber-700 text-xs font-bold px-4 py-1.5 rounded-full border border-amber-200 uppercase tracking-widest shadow-sm">
+                📖 AI-Powered Magic Storybook Creator
+            </span>
+            <h1 class="text-4xl sm:text-6xl font-bold mt-6 mb-4 tracking-tight text-slate-900 leading-tight">
+                Turn Your Child Into The <span class="bg-gradient-to-r from-amber-500 via-orange-500 to-pink-500 bg-clip-text text-transparent">Hero of Their Tale</span>
+            </h1>
+            <p class="max-w-2xl mx-auto text-slate-600 text-lg mb-10 font-normal">
+                Enter a name, a moral lesson, and a magical setting. Our AI engine instantly spins a multi-page illustrated storybook custom-tailored just for them!
+            </p>
+            <div class="flex justify-center gap-4">
+                <a href="#creator" class="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-bold px-8 py-3.5 rounded-2xl shadow-xl transition transform hover:scale-105 glow-effect">
+                    Start Creating Now 🚀
+                </a>
+            </div>
+        </section>
+
+        <!-- STORY CREATOR INPUT PORTAL -->
+        <section id="creator" class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
+            <div class="bg-white/90 backdrop-blur-sm border border-amber-200/80 rounded-3xl p-8 sm:p-10 shadow-2xl relative">
+                
+                <div class="flex items-center space-x-3 mb-6">
+                    <div class="bg-amber-100 p-3 rounded-2xl text-2xl">🪄</div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-slate-900">Story Recipe Workshop</h2>
+                        <p class="text-sm text-slate-500">Provide the secret ingredients to spawn a custom illustrated book.</p>
+                    </div>
+                </div>
+
+                <form onsubmit="startStoryGeneration(event)" class="space-y-5">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-600 uppercase mb-2">Main Character Name</label>
+                            <input type="text" id="heroName" required placeholder="e.g., Leo or Maya" class="w-full bg-amber-50/50 border border-amber-200 rounded-xl px-4 py-3 text-slate-800 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-200 transition">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-600 uppercase mb-2">Magical Setting</label>
+                            <input type="text" id="setting" required placeholder="e.g., A floating candy cloud kingdom" class="w-full bg-amber-50/50 border border-amber-200 rounded-xl px-4 py-3 text-slate-800 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-200 transition">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-600 uppercase mb-2">Moral Lesson to Teach</label>
+                        <select id="moral" class="w-full bg-amber-50/50 border border-amber-200 rounded-xl px-4 py-3 text-slate-800 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-200 transition">
+                            <option value="sharing">The Power of Sharing & Kindness</option>
+                            <option value="bravery">Facing Fears and Finding Courage</option>
+                            <option value="honesty">The Importance of Honesty</option>
+                            <option value="teamwork">Teamwork Makes the Dream Work</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" id="generateBtn" class="w-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-bold py-4 rounded-xl shadow-lg transition transform active:scale-95 flex items-center justify-center space-x-2 text-base">
+                        <span>Weave Storybook ✨</span>
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- GENERATION LOADING ANIMATION MODAL / SECTION -->
+        <section id="loadingSection" class="max-w-xl mx-auto px-4 mb-20 hidden">
+            <div class="bg-white/95 border-2 border-amber-300 rounded-3xl p-8 text-center shadow-2xl">
+                <div class="relative w-24 h-24 mx-auto mb-6 flex items-center justify-center bg-amber-100 rounded-full animate-bounce">
+                    <span class="text-4xl">📚</span>
+                </div>
+                <h3 id="loadingStatus" class="text-xl font-bold text-slate-800 mb-2">Conjuring Magical Words...</h3>
+                <p id="loadingSubtext" class="text-slate-500 text-sm mb-6">Our buddy owl is writing chapters tailored just for your child.</p>
+                
+                <!-- Progress Bar -->
+                <div class="w-full bg-amber-100 h-3 rounded-full overflow-hidden">
+                    <div id="progressBar" class="bg-gradient-to-r from-amber-500 to-orange-500 h-full w-0 transition-all duration-500"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MULTI-PAGE STORYBOOK VIEWER (Hidden until generated) -->
+        <section id="storybookViewer" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-24 hidden">
+            <div class="bg-white border-4 border-amber-300 rounded-3xl p-6 sm:p-12 shadow-2xl relative">
+                
+                <!-- Book Header Badge -->
+                <div class="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-bold text-xs uppercase px-6 py-2 rounded-full shadow-md tracking-wider">
+                    📖 Your Custom Storybook
+                </div>
+
+                <!-- Page Content Container -->
+                <div id="pageContainer" class="mt-4">
+                    <!-- Dynamic pages get injected here via JS -->
+                </div>
+
+                <!-- Page Navigation Controls -->
+                <div class="flex items-center justify-between mt-10 pt-6 border-t border-amber-100">
+                    <button onclick="prevPage()" id="prevBtn" class="bg-amber-100 hover:bg-amber-200 text-amber-800 font-semibold px-5 py-2.5 rounded-xl transition text-sm disabled:opacity-40 flex items-center gap-2">
+                        ⬅️ Previous Page
+                    </button>
+                    <span id="pageIndicator" class="text-sm font-bold text-slate-600 bg-amber-50 px-4 py-2 rounded-xl border border-amber-200">Page 1 of 3</span>
+                    <button onclick="nextPage()" id="nextBtn" class="bg-amber-500 hover:bg-amber-600 text-white font-semibold px-5 py-2.5 rounded-xl transition text-sm flex items-center gap-2 shadow-md">
+                        Next Page ➡️
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT & CONTACT SECTION -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div id="about" class="bg-white/80 backdrop-blur-sm border border-amber-200 p-8 rounded-3xl shadow-sm">
+                <h3 class="text-xl font-bold mb-3 text-amber-700">About DreamWeave Tales</h3>
+                <p class="text-slate-600 text-sm leading-relaxed">Built for parents, educators, and young readers. We use generative intelligence to compose creative, wholesome story lines tailored with custom character names, encouraging children to fall in love with reading.</p>
+            </div>
+            <div id="contact" class="bg-white/80 backdrop-blur-sm border border-amber-200 p-8 rounded-3xl shadow-sm">
+                <h3 class="text-xl font-bold mb-3 text-amber-700">Get in Touch</h3>
+                <p class="text-slate-600 text-sm leading-relaxed mb-4">Have questions about custom book printing or feature suggestions? Our friendly mascot owl would love to hear from you!</p>
+                <a href="mailto:support@dreamweavetales.com" class="text-amber-600 font-semibold text-sm hover:underline">support@dreamweavetales.com 💌</a>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-amber-900 text-amber-200 py-6 text-center text-xs">
+        <p>&copy; 2026 DreamWeave Tales. Sparking imagination one page at a time. 🌟</p>
+    </footer>
+
+    <!-- GENERATOR & ANIMATION SCRIPT -->
+    <script>
+        let currentStoryPages = [];
+        let currentPageIndex = 0;
+
+        function startStoryGeneration(event) {
+            event.preventDefault();
+
+            // Hide previous viewer if open
+            document.getElementById('storybookViewer').classList.add('hidden');
+            
+            // Show loading animation box & scroll down to it
+            const loadingSection = document.getElementById('loadingSection');
+            loadingSection.classList.remove('hidden');
+            loadingSection.scrollIntoView({ behavior: 'smooth' });
+
+            const statusText = document.getElementById('loadingStatus');
+            const subtext = document.getElementById('loadingSubtext');
+            const progressBar = document.getElementById('progressBar');
+
+            // Step-by-step animation sequence simulation
+            progressBar.style.width = '20%';
+            statusText.innerText = "🦉 Buddy Owl is reading your inputs...";
+            subtext.innerText = "Analyzing the moral lesson and hero profile...";
+
+            setTimeout(() => {
+                progressBar.style.width = '60%';
+                statusText.innerText = "✨ Weaving the magical plotlines...";
+                subtext.innerText = "Constructing interactive chapters and scenarios...";
+            }, 1200);
+
+            setTimeout(() => {
+                progressBar.style.width = '90%';
+                statusText.innerText = "🎨 Painting custom illustrations...";
+                subtext.innerText = "Adding colors, magic sparkles, and finishing touches...";
+            }, 2400);
+
+            setTimeout(() => {
+                progressBar.style.width = '100%';
+                loadingSection.classList.add('hidden');
+                
+                // Build the final story data
+                generateStoryData();
+                currentPageIndex = 0;
+                renderPage();
+
+                // Show viewer
+                const viewer = document.getElementById('storybookViewer');
+                viewer.classList.remove('hidden');
+                viewer.scrollIntoView({ behavior: 'smooth' });
+            }, 3500);
+        }
+
+        function generateStoryData() {
+            const name = document.getElementById('heroName').value;
+            const setting = document.getElementById('setting').value;
+            const moralSelect = document.getElementById('moral');
+            const moral = moralSelect.options[moralSelect.selectedIndex].text;
+
+            currentStoryPages = [
+                {
+                    title: `Chapter 1: The Journey Begins in ${setting}`,
+                    illustration: "🏰✨",
+                    illustrationBg: "from-pink-100 to-purple-100",
+                    text: `Once upon a time, a brave young explorer named **${name}** set off on a magnificent adventure. Their destination was the wondrous landscape of **${setting}**, where glowing flowers whispered secrets to the wind.`
+                },
+                {
+                    title: "Chapter 2: The Choice of a Lifetime",
+                    illustration: "🌟🤝",
+                    illustrationBg: "from-amber-100 to-yellow-100",
+                    text: `While exploring the bright pathways, **${name}** crossed paths with a little wandering star who had lost its way home. Remembering the core lesson of **${moral}**, ${name} paused everything to help guide their new friend.`
+                },
+                {
+                    title: "Chapter 3: A Happy Ending",
+                    illustration: "👑🎉",
+                    illustrationBg: "from-emerald-100 to-teal-100",
+                    text: `With teamwork and a generous heart, the star soared back into the night sky, leaving a trail of sparkling stardust behind. From that day on, everyone in **${setting}** cheered for **${name}**, knowing that true magic comes from within!`
+                }
+            ];
+        }
+
+        function renderPage() {
+            const page = currentStoryPages[currentPageIndex];
+            const container = document.getElementById('pageContainer');
+
+            container.innerHTML = `
+                <div class="text-center mb-6">
+                    <span class="text-xs font-bold text-amber-600 uppercase tracking-widest bg-amber-100 px-3 py-1 rounded-full">${page.title}</span>
+                </div>
+                <!-- Animated Illustration Box -->
+                <div class="w-full h-72 sm:h-96 bg-gradient-to-tr ${page.illustrationBg} rounded-3xl flex items-center justify-center text-8xl shadow-inner mb-8 border border-amber-200 animate-float">
+                    ${page.illustration}
+                </div>
+                <!-- Story Text -->
+                <p class="text-slate-700 text-lg sm:text-2xl text-center leading-relaxed font-normal max-w-2xl mx-auto">
+                    ${page.text}
+                </p>
+            `;
+
+            // Update indicators and buttons
+            document.getElementById('pageIndicator').innerText = `Page ${currentPageIndex + 1} of ${currentStoryPages.length}`;
+            document.getElementById('prevBtn').disabled = currentPageIndex === 0;
+            document.getElementById('nextBtn').disabled = currentPageIndex === currentStoryPages.length - 1;
+        }
+
+        function nextPage() {
+            if (currentPageIndex < currentStoryPages.length - 1) {
+                currentPageIndex++;
+                renderPage();
+            }
+        }
+
+        function prevPage() {
+            if (currentPageIndex > 0) {
+                currentPageIndex--;
+                renderPage();
+            }
+        }
+    </script>
+</body>
+</html>
+</body>
+</html>
